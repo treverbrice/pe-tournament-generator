@@ -34,7 +34,18 @@ def get_num_wins(team_name: str) -> int:
     return user_num_wins
 
 def generate_first_round(teams: dict) -> None:
-    pass
+    local_teams = teams.copy()
+    local_teams = dict(sorted(local_teams.items(), key=lambda item: item[1]))
+    num_games = len(local_teams) // 2
+
+    print("Generating the games to be played in the first round of the tournament...")
+    for game in range(num_games):
+        team1 = local_teams.popitem()
+        local_teams = dict(sorted(local_teams.items(), key=lambda item: item[1], reverse = True))
+        team2 = local_teams.popitem()
+        local_teams = dict(sorted(local_teams.items(), key=lambda item: item[1]))
+        print(f"Home: {team1[0]} VS Away: {team2[0]}")
+
 
 # teams = {"name": wins, "name": wins}
 if __name__ == "__main__":
