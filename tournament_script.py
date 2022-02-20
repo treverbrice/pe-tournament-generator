@@ -14,14 +14,26 @@ def get_num_games() -> int:
 def get_num_wins(team_name: str) -> int:
     pass
 
-def generate_round(teams: dict) -> None:
+def generate_first_round(teams: dict) -> None:
     pass
 
 # teams = {"name": wins, "name": wins}
 if __name__ == "__main__":
     # get number of teams
+    num_teams = get_num_teams()
+
     # loop through and get team names
+    team_names = []
+    for team in range(num_teams):
+        team_names.append(get_team_name(team + 1))
+
     # get num of games
+    num_games = get_num_games
+
     # loop through and get num of wins
-    # loop, waiting for all games, or user exit
-    # print next tournament round
+    teams = {}
+    for team in range(num_teams):
+        teams[team_names[team]] = get_num_wins(team_names[team])
+
+    # get the first round
+    generate_first_round(teams)
