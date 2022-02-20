@@ -20,14 +20,18 @@ def get_team_name(team_num: int) -> str:
     return user_team_name
 
 def get_num_games(num_teams: int) -> int:
-    user_num_games = input("Enter the number of games played by each team: ")
-    if int(user_num_games) < num_teams - 1:
+    user_num_games = int(input("Enter the number of games played by each team: "))
+    if user_num_games < num_teams - 1:
         print("Invalid number of games. Each team plays each other at least once in the regular season, try again")
         user_num_games = get_num_games(num_teams)
     return user_num_games
 
 def get_num_wins(team_name: str) -> int:
-    pass
+    user_num_wins = int(input(f"Enter the number of wins Team {team_name} had: "))
+    if user_num_wins < 0:
+        print("The minimum number of wins is 0, try again.")
+        user_num_wins = get_num_wins(team_name)
+    return user_num_wins
 
 def generate_first_round(teams: dict) -> None:
     pass
