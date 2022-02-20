@@ -3,7 +3,11 @@ run this script directly to generate tournament matchups based on season wins
 '''
 
 def get_num_teams() -> int:
-    pass
+    user_num_teams = input("Enter the number of teams in the tournament: ")
+    if user_num_teams < 2:
+        print("The minimum number of teams is 2, try again.")
+        user_num_teams = get_num_teams()
+    return user_num_teams
 
 def get_team_name(team_num: int) -> str:
     pass
